@@ -1,2 +1,82 @@
-<h1>Customer::Customers#edit</h1>
-<p>Find me in app/views/customer/customers/edit.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-2">
+        <h1>利用者マイページ編集</h1>
+      </div>
+    </div>
+
+
+    <%= form_with model: @customer, url: customers_mypage_path do |f| %>
+    <div class="row">
+    <div class="col-md-2 py-3 offset-4">
+      商品画像
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.file_field :customers_image, accept: "image/*" %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      利用者名
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :first_name, class:"w-50" %>
+    </div>
+    <div class="col-md-6 py-1">
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      フリガナ
+    </div>
+    <div class="col-md-3 py-1">
+      <%= f.text_field :first_name_kana %>
+    </div>
+    <div class="col-md-6 py-1">
+      <%= f.text_field :last_name_kana %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      メールアドレス
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :email %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      性別
+    </div>
+    <div class="col-md-3 py-1 offset-1">
+      <%= f.radio_button :gender, Customer.genders.key(0) %>
+      <%= f.label :gender, Customer.genders_i18n[:man] %>
+    </div>
+    <div class="col-md-3 py-1">
+      <%= f.radio_button :gender, Customer.genders.key(1) %>
+      <%= f.label :gender, Customer.genders_i18n[:woman] %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      年齢
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :age %>歳
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      郵便番号
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :postal_code %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      住所
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :address %>
+    </div>
+    <div class="col-md-2 py-3 offset-4">
+      電話番号
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :telephone_number %>
+    </div>
+    <div class="col text-center">
+      <%= f.submit '変更を保存', class: "btn btn-success" %>
+    </div>
+   </div>
+  <% end %>
+</div>

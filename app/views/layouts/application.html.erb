@@ -50,27 +50,36 @@
                 ようこそ！<%= current_customer.first_name %>さん
               </li>
                <li>
-                 <%= link_to "マイページ", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "レビュー一覧", homes_top_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
-                 <%= link_to "商品一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "履歴", homes_top_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
-                 <%= link_to "カート", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "求人一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+               </li>
+               <li>
+                 <%= link_to "マイページ", customers_mypage_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
                </li>
 
                <% elsif farmer_signed_in? %>
+               <li class="mr-5">
+                ようこそ！<%= current_farmer.name %>さん
+              </li>
                <li>
-                 <%= link_to "マイページ", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "レビュー一覧", homes_top_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
-                 <%= link_to "商品一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "求人投稿", homes_top_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
-                 <%= link_to "カート", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "求人一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+               </li>
+               <li>
+                 <%= link_to "マイページ", farmers_mypage_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
                  <%= link_to "ログアウト", destroy_farmer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
