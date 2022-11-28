@@ -9,74 +9,76 @@
 
     <%= form_with model: @customer, url: customers_mypage_path do |f| %>
     <div class="row">
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       商品画像
     </div>
     <div class="col-md-5 py-3">
       <%= f.file_field :customers_image, accept: "image/*" %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       利用者名
     </div>
-    <div class="col-md-5 py-3">
-      <%= f.text_field :first_name, class:"w-50" %>
+    <div class="col-md-3 py-3">
+      <%= f.text_field :first_name, class:"w-75" %>
     </div>
-    <div class="col-md-6 py-1">
-      <%= f.text_field :last_name %>
+    <div class="col-md-3 py-3">
+      <%= f.text_field :last_name, class:"w-75" %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       フリガナ
     </div>
-    <div class="col-md-3 py-1">
-      <%= f.text_field :first_name_kana %>
+    <div class="col-md-3 py-3">
+      <%= f.text_field :first_name_kana, class:"w-75" %>
     </div>
-    <div class="col-md-6 py-1">
-      <%= f.text_field :last_name_kana %>
+    <div class="col-md-3 py-3">
+      <%= f.text_field :last_name_kana, class:"w-75" %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       メールアドレス
     </div>
     <div class="col-md-5 py-3">
-      <%= f.text_field :email %>
+      <%= f.text_field :email, class:"w-100" %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       性別
     </div>
-    <div class="col-md-3 py-1 offset-1">
+    <div class="col-md-2 py-3">
       <%= f.radio_button :gender, Customer.genders.key(0) %>
       <%= f.label :gender, Customer.genders_i18n[:man] %>
     </div>
-    <div class="col-md-3 py-1">
+    <div class="col-md-3 py-3">
       <%= f.radio_button :gender, Customer.genders.key(1) %>
       <%= f.label :gender, Customer.genders_i18n[:woman] %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       年齢
     </div>
-    <div class="col-md-5 py-3">
+    <div class="col-md-8 py-3">
       <%= f.text_field :age %>歳
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       郵便番号
     </div>
     <div class="col-md-5 py-3">
       <%= f.text_field :postal_code %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       住所
     </div>
     <div class="col-md-5 py-3">
       <%= f.text_field :address %>
     </div>
-    <div class="col-md-2 py-3 offset-4">
+    <div class="col-md-2 py-3 offset-2">
       電話番号
     </div>
-    <div class="col-md-5 py-3">
+    <div class="col-md-8 py-3">
       <%= f.text_field :telephone_number %>
     </div>
     <div class="col text-center">
-      <%= f.submit '変更を保存', class: "btn btn-success" %>
+      <%= f.submit '変更を保存', class: "btn btn-success btn-lg" %>
     </div>
+    <p></p>
    </div>
+   <p></p>
   <% end %>
 </div>
