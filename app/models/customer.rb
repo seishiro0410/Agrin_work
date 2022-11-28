@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
 
   enum gender: { man: 0, woman: 1 }
 
-  has_one_attached :profile_image
+  has_one_attached :customers_image
 
   def get_customers_image
     unless customers_image.attached?

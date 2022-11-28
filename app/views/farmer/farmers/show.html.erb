@@ -1,2 +1,35 @@
-<h1>Farmer::Farmers#show</h1>
-<p>Find me in app/views/farmer/farmers/show.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-4 offset-2">
+        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">生産者マイページ</h2>
+      </div>
+      <div class="col-md-4 offset-2">
+      <%= link_to '編集する', farmers_mypage_edit_path(@farmer), class: "btn btn-success btn-lg" %>
+      </div>
+    </div>
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-4 offset-1">
+        <%= image_tag @farmer.get_farmers_image,size: "300x300" %>
+      </div>
+
+      <div class="col-md-6">
+        <table class="table table-bordered table-hover" >
+          <tr><th class="table-active">生産者名</th><td><%= @farmer.name %></td></tr>
+          <tr><th class="table-active">フリガナ</th><td><%= @farmer.name_kana %></td></tr>
+          <tr><th class="table-active">メールアドレス</th><td><%= @farmer.email %></td></tr>
+          <tr><th class="table-active">郵便番号</th><td><%= @farmer.postal_code %></td></tr>
+          <tr><th class="table-active">住所</th><td><%= @farmer.address %></td></tr>
+          <tr><th class="table-active">電話番号</th><td><%= @farmer.telephone_number %></td></tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
