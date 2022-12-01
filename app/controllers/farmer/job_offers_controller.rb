@@ -22,6 +22,8 @@ class Farmer::JobOffersController < ApplicationController
   end
 
   def show
+    @job_offer = JobOffer.find(params[:id])
+    @farmer = current_farmer
   end
 
   def edit

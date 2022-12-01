@@ -1,2 +1,76 @@
-<h1>Farmer::JobOffers#show</h1>
-<p>Find me in app/views/farmer/job_offers/show.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">生産者求人詳細ページ</h2>
+      </div>
+    </div>
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <%= image_tag @farmer.get_farmers_image,size: "300x300" %>
+
+        <p></p>
+
+        <table class="table table-bordered" >
+          <tr>
+            <th class="table-active">生産者名</th><td><%= @farmer.name %></td>
+          </tr>
+          <tr>
+            <th class="table-active">フリガナ</th><td><%= @farmer.name_kana %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-8">
+        <table class="table table-bordered" >
+          <tr>
+            <th class="table-active">作業名</th><td><%= @job_offer.job_name %></td>
+          </tr>
+          <tr>
+            <th class="table-active">作業内容</th><td><%= @job_offer.job_content %></td>
+          </tr>
+          <tr>
+            <th class="table-active">日付</th><td><%= @job_offer.day %></td>
+          </tr>
+          <tr>
+            <th class="table-active">開始時間</th><td><%= @job_offer.start_time %></td>
+          </tr>
+          <tr>
+            <th class="table-active">勤務時間</th><td><%= @job_offer.job_time %>時間</td>
+          </tr>
+          <tr>
+            <th class="table-active">日当</th><td><%= @job_offer.salary %>円</td>
+          </tr>
+          <tr>
+            <th class="table-active">地区</th><td><%= @job_offer.area_i18n %></td>
+          </tr>
+          <tr>
+            <th class="table-active">郵便番号</th><td>〒<%= @job_offer.job_postal_code %></td>
+          </tr>
+          <tr>
+            <th class="table-active">住所</th><td><%= @job_offer.job_address %></td>
+          </tr>
+          <tr>
+            <th class="table-active">電話番号</th><td><%= @farmer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th class="table-active">コメント</th><td><%= @job_offer.comment %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 offset-5">
+        <%= link_to "編集する", edit_farmer_job_offer_path(@job_offer.id), class: "btn btn-success btn-lg" %>
+      </div>
+    </div>
+
+    <p></p>
+
+</div>
