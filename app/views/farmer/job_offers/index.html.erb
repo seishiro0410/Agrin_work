@@ -13,11 +13,11 @@
     </div>
 
     <% @job_offers.each do |job_offer| %>
-    <div class= "row border border-5 p-5">
+    <div class= "row border border-5 p-5 d-flex align-items-center">
       <div class="col-md-2">
         <%= image_tag @farmer.get_farmers_image,size: "150x150" %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3" >
         作業名：<%= job_offer.job_name %><br>
         <p></p>
         日付：<%= job_offer.day %><br>
@@ -25,9 +25,17 @@
         地区：<%= job_offer.area_i18n %><br>
       </div>
       <div class="col-md-2">
+        勤務時間：<%= job_offer.job_time %>時間<br>
+        <p></p>
         日当：<%= job_offer.salary %>円<br>
         <p></p>
         募集状況：<%= job_offer.job_status_i18n %><br>
+      </div>
+      <div class="col-md-1">
+        <%= link_to '詳細', farmer_job_offer_path(job_offer.id), class: "btn btn-primary" %>
+      </div>
+      <div class="col-md-1">
+      <%= link_to '削除', farmer_job_offer_path(job_offer.id), method: :patch, "data-confirm" => "本当に消しますか?",  class: "btn btn-danger" %>
       </div>
 
     </div>

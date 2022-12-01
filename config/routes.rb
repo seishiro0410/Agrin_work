@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  
+
  # 利用者用
 # URL /customers/sign_in ...
 devise_for :customer,skip: [:passwords], controllers: {
@@ -39,7 +39,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'farmers/mypage/edit' => 'farmers#edit', as: 'farmers/mypage/edit'
     patch 'farmers/mypage' => 'farmers#update', as: 'farmer_update'
 
-    resources :job_offers, only: [:new, :create, :index, :show, :edit, :update]
+    resources :job_offers, only: [:new, :create, :index, :show, :edit, :update, :destroy]
 
   end
 
