@@ -115,12 +115,13 @@ ActiveRecord::Schema.define(version: 2022_11_23_004248) do
     t.string "salary"
     t.string "job_address"
     t.string "job_postal_code"
-    t.string "date_and_time"
-    t.string "time"
+    t.date "day"
+    t.time "start_time"
+    t.string "job_time"
     t.integer "area"
     t.integer "job_form"
     t.text "comment"
-    t.integer "job_status"
+    t.boolean "job_status", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

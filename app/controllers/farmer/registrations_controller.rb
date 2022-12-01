@@ -13,7 +13,7 @@ class Farmer::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(_resource)
-    farmers_mypage_path
+    farmer_farmers_mypage_path
   end
 
   # POST /resource
