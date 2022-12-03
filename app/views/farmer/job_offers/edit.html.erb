@@ -1,2 +1,92 @@
-<h1>Farmer::JobOffers#edit</h1>
-<p>Find me in app/views/farmer/job_offers/edit.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 offset-3">
+      <h1>求人編集ページ</h1>
+    </div>
+  </div>
+
+   <%= form_with model: @job_offer, url: farmer_job_offer_path(@job_offer.id) do |f| %>
+  <div class="row">
+    <div class="col-md-2 py-3 offset-3">
+      作業名
+    </div>
+    <div class="col-md-6 py-3">
+      <%= f.text_field :job_name, class:"w-75" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      作業内容
+    </div>
+    <div class="col-md-6 py-3">
+      <%= f.text_area :job_content, class:"w-75" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      日付
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.date_field :day, class:"w-50" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      開始時間
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.time_field :start_time, class:"w-50" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      勤務時間
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :job_time, class:"w-25" %>時間
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      日当
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :salary, class:"w-25" %>円
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      郵便番号
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :job_postal_code, :placeholder => "0000000" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      住所
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :job_address, :placeholder => "熊本市東区", class:"w-75" %>
+    </div>
+      <div class="col-md-2 py-3 offset-3">
+        コメント
+      </div>
+      <div class="col-md-6 py-3">
+        <%= f.text_area :comment, class:"w-75" %>
+      </div>
+      <div class="col-md-2 py-3 offset-3">
+        地区
+      </div>
+      <div class="col-md-6 py-3">
+        <%= f.select :area, JobOffer.areas_i18n.invert %>
+      </div>
+      <div class="col-md-2 py-3 offset-3">
+        予約ステータス
+      </div>
+      <div class="col-md-6 py-3">
+        <%= f.collection_radio_buttons :job_status, JobOffer.job_statuses_i18n, :first, :last do |b| %>
+          <%= b.label(class: "radio_button_label") { b.radio_button(class: "radio_button_input") + b.text } %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col text-center">
+      <%= f.submit '変更を保存', class: "btn btn-success" %>
+     </div>
+
+    </div>
+
+  <% end %>
+  <p></p>
+
+
+</div>

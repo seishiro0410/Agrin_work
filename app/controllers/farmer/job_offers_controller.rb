@@ -27,9 +27,19 @@ class Farmer::JobOffersController < ApplicationController
   end
 
   def edit
+    @job_offer = JobOffer.find(params[:id])
   end
 
   def update
+    @job_offer = JobOffer.find(params[:id])
+    @job_offer.update(job_offer_params)
+    redirect_to farmer_job_offers_path(@job_offer.id)
+  end
+
+  def destroy
+    @job_offer = JobOffer.find(params[:id])
+    @job_offer.destroy(job_offer_params)
+    redirect_to farmer_job_offers_path
   end
 
   private
