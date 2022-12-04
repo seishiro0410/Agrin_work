@@ -38,7 +38,7 @@ class Farmer::JobOffersController < ApplicationController
 
   def destroy
     @job_offer = JobOffer.find(params[:id])
-    @job_offer.destroy(job_offer_params)
+    @job_offer.destroy
     redirect_to farmer_job_offers_path
   end
 

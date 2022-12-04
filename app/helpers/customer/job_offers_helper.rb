@@ -1,0 +1,2 @@
+module Customer::JobOffersHelper
+end

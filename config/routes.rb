@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  
  # 利用者用
 # URL /customers/sign_in ...
 devise_for :customer,skip: [:passwords], controllers: {
@@ -32,6 +33,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/mypage' => 'customers#show', as: 'customers/mypage'
     get 'customers/mypage/edit' => 'customers#edit', as: 'customers/mypage/edit'
     patch 'customers/mypage' => 'customers#update', as: 'customer_update'
+    
+    resources :job_offers, only: [:index, :show]
   end
 
   namespace :farmer do

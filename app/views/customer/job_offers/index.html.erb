@@ -2,23 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 offset-md-1">
-        <h2>生産者求人一覧</h2>
-      </div>
-
-      <div class="col-md-2 offset-md-1">
-        <%= link_to new_farmer_job_offer_path do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
+        <h2>求人一覧</h2>
       </div>
     </div>
-
 
     <% @job_offers.each do |job_offer| %>
     <div class= "row border border-5 p-5 d-flex align-items-center">
       <div class="col-md-2">
-        <%= image_tag @farmer.get_farmers_image,size: "150x150" %>
+        <%= image_tag job_offer.farmer.get_farmers_image,size: "150x150" %>
       </div>
-
       <div class="col-md-3" >
         作業名：<%= job_offer.job_name %><br>
         <p></p>
@@ -34,11 +26,9 @@
         募集状況：<%= job_offer.job_status_i18n %><br>
       </div>
       <div class="col-md-2">
-        <%= link_to '詳細', farmer_job_offer_path(job_offer.id), class: "btn btn-primary btn-lg" %>
-      </div>
-      <div class="col-md-2">
-        <%= link_to '削除',  farmer_job_offer_path(job_offer.id), method: :delete, "data-confirm" => "本当に消しますか?",  class: "btn btn-danger btn-lg" %>
+        <%= link_to '詳細', job_offer_path(job_offer.id), class: "btn btn-primary btn-lg" %>
       </div>
 
     </div>
     <% end %>
+  </div>
