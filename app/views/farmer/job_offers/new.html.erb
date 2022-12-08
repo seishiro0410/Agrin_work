@@ -27,6 +27,18 @@
       <%= f.date_field :day, class:"w-50" %>
     </div>
     <div class="col-md-2 py-3 offset-3">
+      求人形態
+    </div>
+    <div class="col-md-6 py-3">
+        <%= f.select :job_form, JobOffer.job_forms_i18n.invert, class:"w-25" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
+      日数(短期の場合)
+    </div>
+    <div class="col-md-5 py-3">
+      <%= f.text_field :number_of_days, :placeholder => "〇日間", class:"w-25" %>
+    </div>
+    <div class="col-md-2 py-3 offset-3">
       開始時間
     </div>
     <div class="col-md-5 py-3">

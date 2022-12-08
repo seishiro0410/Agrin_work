@@ -9,6 +9,7 @@ class CreateJobOffers < ActiveRecord::Migration[6.1]
       t.string :job_address
       t.string :job_postal_code
       t.date :day
+      t.string :number_of_days
       t.time :start_time
       t.string :job_time
       t.integer :area

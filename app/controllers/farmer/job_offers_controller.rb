@@ -45,7 +45,7 @@ class Farmer::JobOffersController < ApplicationController
   private
 
   def job_offer_params
-    params.require(:job_offer).permit(:farmer_id, :job_name, :job_content, :salary, :job_address, :job_postal_code, :day, :start_time, :job_time, :area, :job_form, :comment, :job_status)
+    params.require(:job_offer).permit(:farmer_id, :job_name, :job_content, :salary, :job_address, :job_postal_code, :day, :start_time, :job_time, :area, :job_form, :comment, :job_status, :number_of_days)
   end
 
 end

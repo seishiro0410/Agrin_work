@@ -6,7 +6,18 @@
 
     <div class="row">
       <div class="col-md-12 text-center">
-        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">生産者求人詳細ページ</h2>
+        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">求人予約ページ</h2>
+      </div>
+    </div>
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3 class="text-center">
+            下記の内容で予約を確定しますが、<br>
+            よろしいでしょうか？<br>
+        </h3>
       </div>
     </div>
 
@@ -14,16 +25,16 @@
 
     <div class="row">
       <div class="col-md-4 text-center">
-        <%= image_tag @farmer.get_farmers_image,size: "300x300" %>
+        <%= image_tag @job_offer.farmer.get_farmers_image,size: "300x300" %>
 
         <p></p>
 
         <table class="table table-bordered" >
           <tr>
-            <th class="table-active">生産者名</th><td><%= @farmer.name %></td>
+            <th class="table-active">生産者名</th><td><%= @job_offer.farmer.name %></td>
           </tr>
           <tr>
-            <th class="table-active">フリガナ</th><td><%= @farmer.name_kana %></td>
+            <th class="table-active">フリガナ</th><td><%= @job_offer.farmer.name_kana %></td>
           </tr>
         </table>
       </div>
@@ -36,16 +47,10 @@
             <th class="table-active">作業内容</th><td><%= @job_offer.job_content %></td>
           </tr>
           <tr>
-            <th class="table-active">日付</th><td><%= l @job_offer.day, format: :long %></td>
+            <th class="table-active">日付</th><td><%= l @job_offer.day,format: :long %></td>
           </tr>
           <tr>
-            <th class="table-active">求人形態</th><td><%= @job_offer.job_form_i18n %></td>
-          </tr>
-          <tr>
-            <th class="table-active">日数(短期の場合)</th><td><%= @job_offer.number_of_days %></td>
-          </tr>
-          <tr>
-            <th class="table-active">開始時間</th><td><%= l @job_offer.start_time, format: :short %></td>
+            <th class="table-active">開始時間</th><td><%= l @job_offer.start_time,format: :short %></td>
           </tr>
           <tr>
             <th class="table-active">勤務時間</th><td><%= @job_offer.job_time %>時間</td>
@@ -63,7 +68,7 @@
             <th class="table-active">住所</th><td><%= @job_offer.job_address %></td>
           </tr>
           <tr>
-            <th class="table-active">電話番号</th><td><%= @farmer.telephone_number %></td>
+            <th class="table-active">電話番号</th><td><%= @job_offer.farmer.telephone_number %></td>
           </tr>
           <tr>
             <th class="table-active">コメント</th><td><%= @job_offer.comment %></td>
@@ -71,12 +76,20 @@
         </table>
       </div>
     </div>
+
+    <%= form_with model: @reservation, url: job_offer_reservations_information_path, method: :post do |f| %>
     <div class="row">
-      <div class="col-md-2 offset-5">
-        <%= link_to "編集する", edit_farmer_job_offer_path(@job_offer.id), class: "btn btn-success btn-lg" %>
+      <div class="col-md-2 offset-4">
+        <%= f.submit "予約確定", class: "btn btn-success btn-lg" %>
+    　</div>
+    　<div class="col-md-3">
+        <%= link_to "戻る", job_offer_path(@job_offer.id), class: "btn btn-warning btn-lg" %>
       </div>
     </div>
 
     <p></p>
 
+    <% end %>
+
 </div>
+
