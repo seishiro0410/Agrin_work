@@ -38,6 +38,12 @@
           <tr>
             <th class="table-active">日付</th><td><%= l @job_offer.day,format: :long %></td>
           </tr>
+           <tr>
+            <th class="table-active">求人形態</th><td><%= @job_offer.job_form_i18n %></td>
+          </tr>
+          <tr>
+            <th class="table-active">日数(短期の場合)</th><td><%= @job_offer.number_of_days %></td>
+          </tr>
           <tr>
             <th class="table-active">開始時間</th><td><%= l @job_offer.start_time,format: :short %></td>
           </tr>

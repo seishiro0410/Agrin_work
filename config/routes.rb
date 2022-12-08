@@ -31,6 +31,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/mypage/edit' => 'customers#edit', as: 'customers/mypage/edit'
     patch 'customers/mypage' => 'customers#update', as: 'customer_update'
 
+    get "job_offers/search" => "job_offers#search"
     resources :job_offers, only: [:index, :show] do
       get 'reservations/information'
       post 'reservations/information' => 'reservations#create'
