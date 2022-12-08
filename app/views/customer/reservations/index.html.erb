@@ -1,2 +1,39 @@
-<h1>Customer::Reservations#index</h1>
-<p>Find me in app/views/customer/reservations/index.html.erb</p>
+<p id="notice"></p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h2>予約履歴一覧</h2>
+        </div>
+      </div>
+
+      <% @reservations.each do |reservation| %>
+    <div class= "row border border-5 p-5 d-flex align-items-center">
+      <div class="col-md-3">
+        <%= image_tag reservation.job_offer.farmer.get_farmers_image,size: "150x150" %>
+      </div>
+      <div class="col-md-3" >
+        生産者名：<%= reservation.job_offer.farmer.name %><br>
+        <p></p>
+        作業名：<%= reservation.job_offer.job_name %><br>
+        <p></p>
+        日付：<%= l reservation.job_offer.day,format: :long %><br>
+        <p></p>
+        地区：<%= reservation.job_offer.area_i18n %><br>
+      </div>
+      <div class="col-md-3">
+        求人形態：<%= reservation.job_offer.job_form_i18n %><br>
+        <p></p>
+        勤務時間：<%= reservation.job_offer.job_time %>時間<br>
+        <p></p>
+        日当：<%= reservation.job_offer.salary %>円<br>
+        <p></p>
+        募集状況：<%= reservation.job_offer.job_status_i18n %><br>
+      </div>
+      <div class="col-md-3">
+        <%= link_to '詳細を見る',  reservation_path(reservation.job_offer.id), class: "btn btn-primary btn-lg" %>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
