@@ -32,13 +32,17 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch 'customers/mypage' => 'customers#update', as: 'customer_update'
 
     get "job_offers/search" => "job_offers#search"
+    
     resources :job_offers, only: [:index, :show] do
       get 'reservations/information'
       post 'reservations/information' => 'reservations#create'
       get 'reservations/thanx'
+      
+      resources :customer_reviews, only: [:new, :create]
     end
 
     resources :reservations, only: [:index, :show]
+    
 
   end
 

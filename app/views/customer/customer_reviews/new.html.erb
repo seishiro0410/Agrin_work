@@ -1,0 +1,126 @@
+<p id="notice"></p>
+  <div class="container">
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">レビューページ</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <%= image_tag @job_offer.farmer.get_farmers_image,size: "300x300" %>
+
+        <p></p>
+
+        <table class="table table-bordered" >
+          <tr>
+            <th class="table-active">生産者名</th><td><%= @job_offer.farmer.name %></td>
+          </tr>
+          <tr>
+            <th class="table-active">フリガナ</th><td><%= @job_offer.farmer.name_kana %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-8">
+        <table class="table table-bordered" >
+          <tr>
+            <th class="table-active">作業名</th><td><%= @job_offer.job_name %></td>
+          </tr>
+          <tr>
+            <th class="table-active">作業内容</th><td><%= @job_offer.job_content %></td>
+          </tr>
+          <tr>
+            <th class="table-active">日付</th><td><%= l @job_offer.day,format: :long %></td>
+          </tr>
+           <tr>
+            <th class="table-active">求人形態</th><td><%= @job_offer.job_form_i18n %></td>
+          </tr>
+          <tr>
+            <th class="table-active">日数(短期の場合)</th><td><%= @job_offer.number_of_days %></td>
+          </tr>
+          <tr>
+            <th class="table-active">開始時間</th><td><%= l @job_offer.start_time,format: :short %></td>
+          </tr>
+          <tr>
+            <th class="table-active">勤務時間</th><td><%= @job_offer.job_time %>時間</td>
+          </tr>
+          <tr>
+            <th class="table-active">日当</th><td><%= @job_offer.salary %>円</td>
+          </tr>
+          <tr>
+            <th class="table-active">地区</th><td><%= @job_offer.area_i18n %></td>
+          </tr>
+          <tr>
+            <th class="table-active">郵便番号</th><td>〒<%= @job_offer.job_postal_code %></td>
+          </tr>
+          <tr>
+            <th class="table-active">住所</th><td><%= @job_offer.job_address %></td>
+          </tr>
+          <tr>
+            <th class="table-active">電話番号</th><td><%= @job_offer.farmer.telephone_number %></td>
+          </tr>
+          <tr>
+            <th class="table-active">コメント</th><td><%= @job_offer.comment %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <p></p>
+
+    <div class="row">
+
+      <%= form_with model: @customer_review, url: new_job_offer_customer_review_path do |f| %>
+
+        <div class="form-group row" id="customer_star">
+          <%= f.label :customer_star,'評価 ', class:'col-md-3 col-form-label' %>
+          <%= f.hidden_field :customer_star, id: :review_star %>
+        </div>
+
+        <script>
+       // var raty = new Raty(document.querySelector('[data-raty]'));
+        //$('#customer_star').empty();
+
+       // new Raty(document.querySelector('[data-raty]'), { cancel: true });
+
+
+  //        $('#customer_star').raty({
+  //        size     : 36,
+  //        starOff:  '<%= asset_path('star-off.png') %>',
+  //        starOn : '<%= asset_path('star-on.png') %>',
+  //        starHalf: '<%= asset_path('star-half.png') %>',
+  //          scoreName:'customer_review[customer_star]',
+  //        half: true,
+  //        });
+
+  var elem = document.getElementById('customer_star')
+  var opt = {
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              size     : 36,
+              
+
+  };
+  raty(elem,opt);
+
+ //         new Raty(document.querySelector('#customer_star'), {
+  //              size     : 36,
+  //              starOff:  '<%= asset_path('star-off.png') %>',
+  //              starOn : '<%= asset_path('star-on.png') %>',
+  //              starHalf: '<%= asset_path('star-half.png') %>',
+  //              scoreName:'customer_review[customer_star]',
+  //              half: true
+  //            });
+
+
+        </script>
+      <% end %>
+    </div>
+
+
+  </div>

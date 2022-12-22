@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_12_07_120610) do
   create_table "customer_reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "job_offer_id"
-    t.integer "customer_star"
+    t.float "customer_star"
     t.text "customer_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

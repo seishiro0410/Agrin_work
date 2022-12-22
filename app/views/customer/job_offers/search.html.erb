@@ -9,9 +9,10 @@
           </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-4 offset-md-3">
           <div class="search_form">
             <%= form_with url: job_offers_search_path, local: true, method: :get do |f| %>
+              求人検索
               <%#= f.select :search, options_for_select([["北海道","hokkaido"], ["東北","tohoku"],["関東","kanto"],["中部","cyubu"]["近畿","kinki"]["中国・四国","cyugokushikoku"]["九州","kyusyuokinawa"]]) %>
               <%= f.select :area, JobOffer.areas_i18n.keys.map{|k| [I18n.t("enums.job_offer.area.#{k}"), k]} %>
               <%= f.select :job_form, JobOffer.job_forms_i18n.keys.map{|k| [I18n.t("enums.job_offer.job_form.#{k}"), k]} %>

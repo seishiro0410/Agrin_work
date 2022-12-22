@@ -19,6 +19,8 @@
         </div>
     </div>
 
+    <p></p>
+
     <div class="row">
         <div class="col-md-12">
           <div class="text-center">
@@ -27,4 +29,52 @@
           </div>
         </div>
     </div>
+
+    <p></p>
+
+    <div class="row">
+        <div class="col-md-3 offset-md-1">
+          <div class="text-center">
+            <div class="box5">
+              <h2>求人一覧</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 offset-md-1">
+          <div class="text-center">
+            <div class="box6">
+              <h3>新規登録して求人の詳細をチェック</h3>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <% @job_offers.each do |job_offer| %>
+    <div class= "row border border-5 p-5 d-flex align-items-center">
+      <div class="col-md-3">
+        <%= image_tag job_offer.farmer.get_farmers_image,size: "150x150" %>
+      </div>
+      <div class="col-md-3" >
+        生産者名：<%= job_offer.farmer.name %><br>
+        <p></p>
+        作業名：<%= job_offer.job_name %><br>
+        <p></p>
+        日付：<%= l job_offer.day,format: :long %><br>
+        <p></p>
+        地区：<%= job_offer.area_i18n %><br>
+      </div>
+      <div class="col-md-3">
+        求人形態：<%= job_offer.job_form_i18n %><br>
+        <p></p>
+        勤務時間：<%= job_offer.job_time %>時間<br>
+        <p></p>
+        日当：<%= job_offer.salary %>円<br>
+        <p></p>
+        募集状況：<%= job_offer.job_status_i18n %><br>
+      </div>
+    </div>
+    <% end %>
+
 </div>
