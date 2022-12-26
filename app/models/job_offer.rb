@@ -2,6 +2,7 @@ class JobOffer < ApplicationRecord
 
   belongs_to :farmer
   has_many :reservations, dependent: :destroy
+  has_many :customers, through: :reservations
   has_many :customer_reviews, dependent: :destroy
   has_many :farmer_reviews, dependent: :destroy
   has_one_attached :farmer_image

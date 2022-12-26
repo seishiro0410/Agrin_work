@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
  # 利用者用
 # URL /customers/sign_in ...
 devise_for :customer,skip: [:passwords], controllers: {
@@ -32,17 +31,17 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch 'customers/mypage' => 'customers#update', as: 'customer_update'
 
     get "job_offers/search" => "job_offers#search"
-    
+
     resources :job_offers, only: [:index, :show] do
       get 'reservations/information'
       post 'reservations/information' => 'reservations#create'
       get 'reservations/thanx'
-      
+
       resources :customer_reviews, only: [:new, :create]
     end
 
     resources :reservations, only: [:index, :show]
-    
+
 
   end
 
@@ -51,7 +50,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'farmers/mypage/edit' => 'farmers#edit', as: 'farmers/mypage/edit'
     patch 'farmers/mypage' => 'farmers#update', as: 'farmer_update'
 
-    resources :job_offers, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :job_offers, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      get 'reservations/index'
+
+      collection do
+        resources :customer_reviews, only: [:index, :show]
+      end
+    end
+
+
 
   end
 

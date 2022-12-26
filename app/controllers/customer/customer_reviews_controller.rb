@@ -3,12 +3,16 @@ class Customer::CustomerReviewsController < ApplicationController
     @customer_review = CustomerReview.new
     @job_offer = JobOffer.find(params[:job_offer_id])
   end
-  
+
   def create
-    @customer_review = CustomerReview.new(review_params)
+    @customer_review = current_customer.customer_reviews.build(customer_review_params)
+    @customer_review.customer_star = params[:score]
+    @customer_review.job_offer_id = params[:job_offer_id]
     @customer_review.save
     redirect_to reservations_path
   end
+
+  
 
   private
 

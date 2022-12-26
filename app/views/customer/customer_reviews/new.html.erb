@@ -71,31 +71,35 @@
 
     <p></p>
 
-    <div class="row">
 
-      <%= form_with model: @customer_review, url: new_job_offer_customer_review_path do |f| %>
 
-        <div class="form-group row" id="customer_star">
-          <%= f.label :customer_star,'評価 ', class:'col-md-3 col-form-label' %>
-          <%= f.hidden_field :customer_star, id: :review_star %>
+      <%= form_with model: @customer_review, url: job_offer_customer_reviews_path, method: :post do |f| %>
+
+      <!--<div class="col-md-4 offset-3">-->
+        <div class="form-group" id="customer_star">
+          <%= f.label :customer_star,'評価 ', class:'col-md-3 col-form-label offset-3' %>
         </div>
 
-        <script>
-       // var raty = new Raty(document.querySelector('[data-raty]'));
-        //$('#customer_star').empty();
+        <div class="row">
+          <div class="col-me-4 offset-3">
+            生産者へのコメント
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-me-7 offset-3">
+            <%= f.text_area :customer_comment, class:"w-100" %>
+          </div>
+        </div>
 
-       // new Raty(document.querySelector('[data-raty]'), { cancel: true });
-
-
-  //        $('#customer_star').raty({
-  //        size     : 36,
-  //        starOff:  '<%= asset_path('star-off.png') %>',
-  //        starOn : '<%= asset_path('star-on.png') %>',
-  //        starHalf: '<%= asset_path('star-half.png') %>',
-  //          scoreName:'customer_review[customer_star]',
-  //        half: true,
-  //        });
-
+        <div class="col text-center">
+          <%= f.submit 'レビュー登録', class: "btn btn-success" %>
+        </div>
+        <!--</div>-->
+        <!--</div>-->
+      <% end %>
+  </div>
+  
+<script>
   var elem = document.getElementById('customer_star')
   var opt = {
               starOff:  '<%= asset_path('star-off.png') %>',
@@ -103,24 +107,6 @@
               starHalf: '<%= asset_path('star-half.png') %>',
               half: true,
               size     : 36,
-              
-
   };
-  raty(elem,opt);
-
- //         new Raty(document.querySelector('#customer_star'), {
-  //              size     : 36,
-  //              starOff:  '<%= asset_path('star-off.png') %>',
-  //              starOn : '<%= asset_path('star-on.png') %>',
-  //              starHalf: '<%= asset_path('star-half.png') %>',
-  //              scoreName:'customer_review[customer_star]',
-  //              half: true
-  //            });
-
-
-        </script>
-      <% end %>
-    </div>
-
-
-  </div>
+  raty(elem,opt)
+</script>

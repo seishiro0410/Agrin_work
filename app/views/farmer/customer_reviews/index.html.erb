@@ -1,0 +1,45 @@
+<h1>Farmer::CustomerReviews#index</h1>
+<p>Find me in app/views/farmer/customer_reviews/index.html.erb</p>
+
+
+<% if @job_offers.any? %>
+  <% @job_offers.each do |job_offer| %>
+    <%= job_offer.inspect %>
+
+    <% customer_reviews = job_offer.customer_reviews %>
+    <% sum = customer_reviews&.pluck(:customer_star)&.sum %>
+    <%= (sum != 0) ? sum.fdiv(customer_reviews.size).round(1) : 0 %>
+
+    <% if customer_reviews.any? %>
+      <% customer_reviews.each do |customer_review| %>
+        <hr>
+        <%= customer_review.inspect %>
+        <div class= "row border border-5 p-5 d-flex align-items-center">
+          <div class="col-md-2">
+            <%#= image_tag customer_review.customer.get_farmers_image,size: "150x150" %>
+          </div>
+        </div>
+        <div class="col-md-3" >
+          星：<%= customer_review.customer_star %>
+        </div>
+        <div class="col-md-4">
+          コメント：<%=customer_review.customer_comment %>
+        </div>
+
+      <% end %>
+    <% end %>
+    <hr><hr>
+  <% end %>
+<% end %>
+
+<script>
+  var elem = document.getElementById('customer_star')
+  var opt = {
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              size     : 36,
+  };
+  raty(elem,opt)
+</script>
