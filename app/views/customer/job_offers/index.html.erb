@@ -1,22 +1,18 @@
 <p id="notice"></p>
   <div class="container">
     <div class="row">
-        <div class="col-md-3 offset-md-1">
-          <div class="text-center">
-            <div class="box5">
-              <h2>求人一覧</h2>
-            </div>
+        <div class="col-md-3 offset-md-1 text-center">
+          <div class="box1">
+            <h2>求人一覧</h2>
           </div>
         </div>
 
-        <div class="col-md-4 offset-md-3">
+        <div class="col-md-5 offset-md-2">
           <div class="search_form">
             <%= form_with url: job_offers_search_path, local: true, method: :get do |f| %>
-              求人検索
-              <%#= f.select :search, options_for_select([["北海道","hokkaido"], ["東北","tohoku"],["関東","kanto"],["中部","cyubu"]["近畿","kinki"]["中国・四国","cyugokushikoku"]["九州","kyusyuokinawa"]]) %>
+              キーワード検索
               <%= f.select :area, JobOffer.areas_i18n.keys.map{|k| [I18n.t("enums.job_offer.area.#{k}"), k]} %>
               <%= f.select :job_form, JobOffer.job_forms_i18n.keys.map{|k| [I18n.t("enums.job_offer.job_form.#{k}"), k]} %>
-              <%#= f.select :search, options_for_select([["１日","day"], ["短期","short"]]) %>
               <%= f.submit "検索", class: "btn btn-primary" %>
             <% end %>
           </div>
@@ -25,11 +21,11 @@
     </div>
 
     <% @job_offers.each do |job_offer| %>
-    <div class= "row border border-5 p-5 d-flex align-items-center">
+    <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-3">
         <%= image_tag job_offer.farmer.get_farmers_image,size: "150x150" %>
       </div>
-      <div class="col-md-3" >
+      <div class="col-md-3">
         生産者名：<%= job_offer.farmer.name %><br>
         <p></p>
         作業名：<%= job_offer.job_name %><br>
@@ -50,7 +46,9 @@
       <div class="col-md-3">
         <%= link_to '詳細を見る', job_offer_path(job_offer.id), class: "btn btn-primary btn-lg" %>
       </div>
+      </div>
 
-    </div>
     <% end %>
   </div>
+
+  <p></p>

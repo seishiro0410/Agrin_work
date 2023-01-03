@@ -6,6 +6,7 @@ class Farmer::ConfirmationsController < Devise::ConfirmationsController
   #   super
   # end
 
+
   # POST /resource/confirmation
   # def create
   #   super

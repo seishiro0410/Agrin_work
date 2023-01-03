@@ -1,10 +1,24 @@
-<h1>Farmer::CustomerReviews#index</h1>
-<p>Find me in app/views/farmer/customer_reviews/index.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">レビュー一覧ページ</h2>
+      </div>
+    </div>
 
 
 <% if @job_offers.any? %>
   <% @job_offers.each do |job_offer| %>
     <%= job_offer.inspect %>
+      <div class= "row border border-5 p-5 d-flex align-items-center">
+        <div class="col-md-3" >
+          作業名：<%= job_offer.job_name %>
+        </div>
+      </div>
+
 
     <% customer_reviews = job_offer.customer_reviews %>
     <% sum = customer_reviews&.pluck(:customer_star)&.sum %>
@@ -16,15 +30,29 @@
         <%= customer_review.inspect %>
         <div class= "row border border-5 p-5 d-flex align-items-center">
           <div class="col-md-2">
-            <%#= image_tag customer_review.customer.get_farmers_image,size: "150x150" %>
+            <%= image_tag customer_review.customer.get_customers_image,size: "150x150" %>
           </div>
         </div>
-        <div class="col-md-3" >
+        <div class="col-md-3" id="customer_star_<%= customer_review.id %>" >
           星：<%= customer_review.customer_star %>
         </div>
         <div class="col-md-4">
           コメント：<%=customer_review.customer_comment %>
         </div>
+
+        <script>
+          var elem = document.getElementById('customer_star_<%= customer_review.id %>')
+          var opt = {
+                      score: <%= customer_review.customer_star %>,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      size     : 36,
+                      readOnly: true,
+          };
+          raty(elem,opt)
+        </script>
 
       <% end %>
     <% end %>
@@ -32,14 +60,5 @@
   <% end %>
 <% end %>
 
-<script>
-  var elem = document.getElementById('customer_star')
-  var opt = {
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              half: true,
-              size     : 36,
-  };
-  raty(elem,opt)
-</script>
+</div>
+

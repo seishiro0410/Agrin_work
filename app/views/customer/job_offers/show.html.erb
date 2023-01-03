@@ -5,8 +5,10 @@
     <p></p>
 
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">求人詳細ページ</h2>
+      <div class="col-md-8 offset-2 text-center">
+        <div class="box1">
+          <h2>求人詳細ページ</h2>
+        </div>
       </div>
     </div>
 
@@ -18,7 +20,7 @@
 
         <p></p>
 
-        <table class="table table-bordered" >
+        <table class="table table-bordered table-hover table-light" >
           <tr>
             <th class="table-active">生産者名</th><td><%= @job_offer.farmer.name %></td>
           </tr>
@@ -28,7 +30,7 @@
         </table>
       </div>
       <div class="col-md-8">
-        <table class="table table-bordered" >
+        <table class="table table-bordered table-hover table-light" >
           <tr>
             <th class="table-active">作業名</th><td><%= @job_offer.job_name %></td>
           </tr>

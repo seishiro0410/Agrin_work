@@ -2,13 +2,15 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-5">
-          <h2>予約履歴一覧</h2>
+        <div class="col-md-8 offset-md-2 text-center">
+          <div class="box1">
+            <h2>予約履歴一覧</h2>
+          </div>
         </div>
       </div>
 
       <% @reservations.each do |reservation| %>
-    <div class= "row border border-5 p-5 d-flex align-items-center">
+    <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-3">
         <%= image_tag reservation.job_offer.farmer.get_farmers_image,size: "150x150" %>
       </div>
@@ -31,16 +33,17 @@
         募集状況：<%= reservation.job_offer.job_status_i18n %><br>
       </div>
       <div class="col-md-2">
-        <%= link_to '詳細を見る',  reservation_path(reservation.id), class: "btn btn-primary" %>
+        <%= link_to '詳細を見る',  reservation_path(reservation.id), class: "btn btn-primary btn-lg" %>
       </div>
       <div class="col-md-2">
 
         <% unless reservation.job_offer.customer_reviews.where(customer_id: current_customer.id).exists? %>
-          
-          <%= link_to 'レビューする',  new_job_offer_customer_review_path(reservation.job_offer.id), class: "btn btn-danger" %>
+
+          <%= link_to 'レビュー',  new_job_offer_customer_review_path(reservation.job_offer.id), class: "btn btn-danger btn-lg" %>
         <%end%>
       </div>
 
     </div>
     <% end %>
+    <p></p>
   </div>

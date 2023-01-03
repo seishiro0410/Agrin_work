@@ -1,12 +1,13 @@
 <p id="notice"></p>
   <div class="container">
     <div class="row">
-        <div class="col-md-8 offset-md-1">
+      <div class="col-md-6 offset-md-1 text-center">
+        <div class="box1">
           <h2>生産者求人一覧</h2>
         </div>
+      </div>
 
-
-      <div class="col-md-2 offset-md-1">
+      <div class="col-md-2 offset-md-2 align-self-center">
         <%= link_to new_farmer_job_offer_path do %>
           <i class="fas fa-plus"></i>
         <% end %>
@@ -16,7 +17,7 @@
 
 
     <% @job_offers.each do |job_offer| %>
-    <div class= "row border border-5 p-5 d-flex align-items-center">
+    <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-2">
         <%= image_tag @farmer.get_farmers_image,size: "150x150" %>
       </div>
@@ -46,4 +47,6 @@
 
     </div>
     <% end %>
+
+    <p></p>
   </div>
