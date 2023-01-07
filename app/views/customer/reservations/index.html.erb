@@ -12,7 +12,7 @@
       <% @reservations.each do |reservation| %>
     <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-3">
-        <%= image_tag reservation.job_offer.farmer.get_farmers_image,size: "150x150" %>
+        <%= image_tag reservation.job_offer.farmer.get_farmers_image,size: "150x150",class:"box2" %>
       </div>
       <div class="col-md-3" >
         生産者名：<%= reservation.job_offer.farmer.name %><br>

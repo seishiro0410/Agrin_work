@@ -16,7 +16,7 @@
     <% @farmer_reviews.each do |farmer_review| %>
     <%#= farmer_review.inspect %>
 
-      <div class= "row border rounded border-2 p-5 align-items-center bg-light mt-3">
+      <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
           <div class="col-md-3">
             <%= image_tag farmer_review.job_offer.farmer.get_farmers_image,size: "150x150", class:"box2" %>
           </div>

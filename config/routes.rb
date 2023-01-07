@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
 
-  
-  namespace :admin do
-    get 'customer_reviews/index'
-  end
-  namespace :admin do
-    get 'farmer_reviews/index'
-  end
-  namespace :admin do
-    get 'farmers/index'
-  end
+
+
  # 利用者用
 # URL /customers/sign_in ...
 devise_for :customer,skip: [:passwords], controllers: {
@@ -78,6 +70,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     get 'customers/index'
+    get 'customer_reviews/index'
+    get 'farmer_reviews/index'
+    get 'farmers/index'
   end
 
 

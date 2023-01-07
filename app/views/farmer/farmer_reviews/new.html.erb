@@ -35,20 +35,23 @@
         <%= f.hidden_field :customer_id, :value => @customer.id %>
 
       <!--<div class="col-md-4 offset-3">-->
+      <!--<div class="row">-->
         <div class="form-group" id="farmer_star">
-          <%= f.label :farmer_star,'評価 ', class:'col-md-3 col-form-label offset-3' %>
+          <%= f.label :farmer_star,'評価 ', class:'col-md-3 col-form-label offset-3 text-center' %>
         </div>
+      <!--</div>-->
+      <p></p>
 
         <div class="row">
-          <div class="col-me-4 offset-3">
+          <div class="col-me-3 offset-3 center">
             利用者へのコメント
           </div>
-        </div>
-        <div class="row">
-          <div class="col-me-7 offset-3">
+          <div class="col-me-4 offset-2">
             <%= f.text_area :farmer_comment, class:"w-100" %>
           </div>
         </div>
+
+        <p></p>
 
         <div class="col text-center">
           <%= f.submit 'レビュー登録', class: "btn btn-success" %>
@@ -57,6 +60,7 @@
         <!--</div>-->
       <% end %>
   </div>
+<p></p>
 
 <script>
   var elem = document.getElementById('farmer_star')

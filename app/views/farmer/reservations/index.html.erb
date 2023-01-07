@@ -12,10 +12,10 @@
     <% @customers.each do |customer| %>
     <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-2">
-          <%= image_tag customer.get_customers_image,size: "150x150" %>
+          <%= image_tag customer.get_customers_image,size: "150x150", class:"box2" %>
       </div>
 
-      <div class="col-md-3" >
+      <div class="col-md-3 offset-1" >
         氏名：<%= customer.first_name %><%= customer.last_name %><br>
         <p></p>
         年齢：<%= customer.age %><br>

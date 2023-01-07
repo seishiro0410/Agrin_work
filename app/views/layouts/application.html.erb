@@ -29,10 +29,16 @@
 
               <% if admin_signed_in? %>
                <li>
-                <%= link_to "会員一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+                <%= link_to "利用者一覧", admin_customers_index_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
-                 <%= link_to "レビュー一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "生産者一覧", admin_farmers_index_path, class: "btn btn-outline-secondary" %>
+               </li>
+               <li>
+                 <%= link_to "利用者レビュー", admin_customer_reviews_index_path, class: "btn btn-outline-secondary" %>
+               </li>
+               <li>
+                 <%= link_to "生産者レビュー", admin_farmer_reviews_index_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>

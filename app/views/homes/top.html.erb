@@ -53,10 +53,10 @@
 
     <% @job_offers.each do |job_offer| %>
     <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
-      <div class="col-md-3">
-        <%= image_tag job_offer.farmer.get_farmers_image,size: "150x150" %>
+      <div class="col-md-4">
+        <%= image_tag job_offer.farmer.get_farmers_image,size: "150x150", class:"box2" %>
       </div>
-      <div class="col-md-3" >
+      <div class="col-md-4" >
         生産者名：<%= job_offer.farmer.name %><br>
         <p></p>
         作業名：<%= job_offer.job_name %><br>
@@ -65,7 +65,7 @@
         <p></p>
         地区：<%= job_offer.area_i18n %><br>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         求人形態：<%= job_offer.job_form_i18n %><br>
         <p></p>
         勤務時間：<%= job_offer.job_time %>時間<br>

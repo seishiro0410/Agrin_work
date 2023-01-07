@@ -1,2 +1,38 @@
-<h1>Admin::Customers#index</h1>
-<p>Find me in app/views/admin/customers/index.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-2 text-center">
+        <div class="box1">
+          <h2>利用者一覧</h2>
+        </div>
+      </div>
+    </div>
+     <table class="table">
+          <thead>
+            <tr>
+              <th>利用者ID</th>
+              <th>利用者画像</th>
+              <th>氏名</th>
+              <th>電話番号</th>
+              <th>メールアドレス</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= image_tag customer.get_customers_image,size: "70x70" %></td>
+              <td><%= customer.first_name %><%= customer.last_name %></td>
+              <td><%= customer.telephone_number %></td>
+              <td><%= customer.email %></td>
+
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+
+
+</div>

@@ -1,2 +1,53 @@
-<h1>Admin::CustomerReviews#index</h1>
-<p>Find me in app/views/admin/customer_reviews/index.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="box1">
+          <h2>利用者レビュー管理</h2>
+        </div>
+      </div>
+    </div>
+
+      <% @customer_reviews.each do |customer_review| %>
+        <%#= customer_review.inspect %>
+        <div class= "row border rounded border-2 p-5 align-items-center bg-light mt-3">
+          <div class="box2">
+          <div class="col-md-3">
+            <%= image_tag customer_review.customer.get_customers_image,size: "150x150" %>
+          </div>
+          </div>
+        <div class="col-md-2">
+          氏名：<%=customer_review.customer.first_name %><%=customer_review.customer.last_name %>
+        <p></p>
+          年齢：<%=customer_review.customer.age %>
+        <p></p>
+          メールアドレス：<%=customer_review.customer.email %>
+        </div>
+
+        <div class="col-md-3" id="customer_star_<%= customer_review.id %>" >
+          <%= customer_review.customer_star %>
+        </div>
+        <div class="col-md-4">
+          コメント：<%=customer_review.customer_comment %>
+        </div>
+      </div>
+
+        <script>
+          var elem = document.getElementById('customer_star_<%= customer_review.id %>')
+          var opt = {
+                      score: <%= customer_review.customer_star %>,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      size     : 36,
+                      readOnly: true,
+          };
+          raty(elem,opt)
+        </script>
+
+      <% end %>
+  </div>
