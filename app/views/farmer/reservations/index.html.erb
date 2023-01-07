@@ -1,21 +1,16 @@
 <p id="notice"></p>
   <div class="container">
     <div class="row">
-        <div class="col-md-8 offset-md-1">
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="box1">
           <h2>求人予約者一覧</h2>
         </div>
-
-
-      <div class="col-md-2 offset-md-1">
-        <%= link_to new_farmer_job_offer_path do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
       </div>
     </div>
 
 
     <% @customers.each do |customer| %>
-    <div class= "row border border-5 p-5 d-flex align-items-center">
+    <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-2">
         <%= image_tag customer.get_customers_image,size: "150x150" %>
       </div>
@@ -31,7 +26,13 @@
         電話番号：<%= customer.telephone_number %><br>
       </div>
 
+      <div class="col-md-2">
+        <% unless @job_offer.farmer_reviews.where(customer_id: customer.id).exists? %>
+          <%= link_to 'レビュー',  new_farmer_job_offer_farmer_review_path(@job_offer.id, customer_id: customer.id), class: "btn btn-danger btn-lg" %>
+        <%end%>
+      </div>
+
     </div>
     <% end %>
-
+   <p></p>
   </div>

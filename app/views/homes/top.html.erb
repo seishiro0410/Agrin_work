@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-md-3 offset-md-1">
           <div class="text-center">
-            <div class="box5">
+            <div class="box1">
               <h2>求人一覧</h2>
             </div>
           </div>
@@ -43,7 +43,7 @@
 
         <div class="col-md-6 offset-md-1">
           <div class="text-center">
-            <div class="box6">
+            <div class="box3">
               <h3>新規登録して求人の詳細をチェック</h3>
             </div>
           </div>
@@ -52,7 +52,7 @@
     </div>
 
     <% @job_offers.each do |job_offer| %>
-    <div class= "row border border-5 p-5 d-flex align-items-center">
+    <div class= "row border rounded-pill border-2 p-5 align-items-center bg-light mt-3">
       <div class="col-md-3">
         <%= image_tag job_offer.farmer.get_farmers_image,size: "150x150" %>
       </div>

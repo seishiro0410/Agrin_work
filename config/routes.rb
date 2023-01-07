@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
  # 利用者用
 # URL /customers/sign_in ...
 devise_for :customer,skip: [:passwords], controllers: {
@@ -52,6 +53,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     resources :job_offers, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       get 'reservations/index'
+      
+      resources :farmer_reviews, only: [:new, :create]
 
       collection do
         resources :customer_reviews, only: [:index, :show]

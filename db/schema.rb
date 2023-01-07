@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2022_12_07_120610) do
   create_table "farmer_reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "job_offer_id"
-    t.integer "farmer_star"
+    t.float "farmer_star"
     t.text "farmer_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

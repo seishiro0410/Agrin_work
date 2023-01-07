@@ -4,41 +4,57 @@
     <p></p>
 
     <div class="row">
-      <div class="col-md-12 text-center">
-        <h2 class="p-2 border border-info border-start-0 rounded-5 text-center">レビュー一覧ページ</h2>
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="box1">
+          <h2>レビュー一覧ページ</h2>
+        </div>
       </div>
     </div>
 
 
 <% if @job_offers.any? %>
   <% @job_offers.each do |job_offer| %>
-    <%= job_offer.inspect %>
-      <div class= "row border border-5 p-5 d-flex align-items-center">
-        <div class="col-md-3" >
-          作業名：<%= job_offer.job_name %>
+    <%#= job_offer.inspect %>
+    <div class="box6">
+      <div class= "row align-items-center mt-3">
+        <h2 class="col-md-3 offset-1" >
+          <%= job_offer.job_name %>
+        </h2>
+
+        <div class="col-md-2">
+          日付：<%=job_offer.day %>
         </div>
+        <div class="col-md-2">
+          給料：<%=job_offer.salary %>
+        </div>
+
+          <p>利用者評価</p>
+          <% customer_reviews = job_offer.customer_reviews %>
+          <% sum = customer_reviews&.pluck(:customer_star)&.sum %>
+          <%= (sum != 0) ? sum.fdiv(customer_reviews.size).round(1) : 0 %>
+
       </div>
-
-
-    <% customer_reviews = job_offer.customer_reviews %>
-    <% sum = customer_reviews&.pluck(:customer_star)&.sum %>
-    <%= (sum != 0) ? sum.fdiv(customer_reviews.size).round(1) : 0 %>
+    </div>
 
     <% if customer_reviews.any? %>
       <% customer_reviews.each do |customer_review| %>
-        <hr>
-        <%= customer_review.inspect %>
-        <div class= "row border border-5 p-5 d-flex align-items-center">
-          <div class="col-md-2">
+        <%#= customer_review.inspect %>
+        <div class= "row border rounded border-2 p-5 align-items-center bg-light mt-3">
+          <div class="col-md-3">
             <%= image_tag customer_review.customer.get_customers_image,size: "150x150" %>
           </div>
+        <div class="col-md-2">
+          氏名：<%=customer_review.customer.first_name %><%=customer_review.customer.last_name %>
+        <p></p>
+          年齢：<%=customer_review.customer.age %>
         </div>
         <div class="col-md-3" id="customer_star_<%= customer_review.id %>" >
-          星：<%= customer_review.customer_star %>
+          <%= customer_review.customer_star %>
         </div>
         <div class="col-md-4">
           コメント：<%=customer_review.customer_comment %>
         </div>
+      </div>
 
         <script>
           var elem = document.getElementById('customer_star_<%= customer_review.id %>')
@@ -56,7 +72,7 @@
 
       <% end %>
     <% end %>
-    <hr><hr>
+    <hr>
   <% end %>
 <% end %>
 

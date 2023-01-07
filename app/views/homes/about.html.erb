@@ -9,17 +9,14 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-          <div class="box6">
+      <div class="col-md-6">
+        <div class="box4">
           <div class="text-center">
-
             <h2>働き手の方はこちら</h2>
             <p></p>
-            <div>
             <%= link_to new_customer_session_path, class: "btn btn-outline-primary btn-block md-1" do %>
               ログイン<i class="fas fa-sign-in-alt"></i>
             <% end %>
-            </div>
 
               <p></p>
 
@@ -30,17 +27,21 @@
         　</div>
         </div>
 
-        <div class="col-md-6">
+      <div class="col-md-6">
+        <div class="box5">
           <div class="text-center">
             <h1>生産者の方はこちら</h1>
             <p></p>
-            <%= link_to new_farmer_session_path, class: "btn btn-outline-primary btn-block md-2" do %>
-              ログイン<i class="fas fa-sign-in-alt"></i>
-            <% end %>
+              <%= link_to new_farmer_session_path, class: "btn btn-outline-primary btn-block md-2" do %>
+                ログイン<i class="fas fa-sign-in-alt"></i>
+              <% end %>
+
             <p></p>
-            <%= link_to new_farmer_registration_path, class: "btn btn-outline-success btn-block md-2" do %>
-              新規登録<i class="fas fa-plus"></i>
-            <% end %>
-        　</div>
+
+              <%= link_to new_farmer_registration_path, class: "btn btn-outline-success btn-block md-2" do %>
+                新規登録<i class="fas fa-plus"></i>
+              <% end %>
+          </div>
         </div>
+      </div>
     </div>

@@ -10,7 +10,7 @@
 
 main {
 	background:radial-gradient(#fff, #99FF99);
-	min-height: 80vh,auto;
+	min-height: 60vh;
 	border: 1px solid #333;
 }
 
@@ -38,3 +38,67 @@ main {
     padding: 0;
 }
 
+.box3 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    background: #FFF;
+}
+.box3 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+.box3 p {
+    margin: 0;
+    padding: 0;
+}
+
+.box4 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #00BCD4;
+    background: #e4fcff;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
+.box4 p {
+    margin: 0;
+    padding: 0;
+}
+
+.box5 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #00BCD4;
+    background: #CCFFCC;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
+.box5 p {
+    margin: 0;
+    padding: 0;
+}
+
+/*レビュー一覧見出し*/
+.box6{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box6 p {
+    margin: 10px;
+    padding: 10px;
+}

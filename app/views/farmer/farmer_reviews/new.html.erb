@@ -1,0 +1,67 @@
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="box1">
+          <h2>生産者レビューページ</h2>
+        </div>
+      </div>
+    </div>
+
+　　<div class="row">
+      <div class="col-md-4 text-center">
+        <%= image_tag @customer.get_customers_image,size: "300x300" %>
+
+        <p></p>
+
+        <table class="table table-bordered" >
+          <tr>
+            <th class="table-active">氏名</th><td><%= @customer.first_name %><%= @customer.last_name %></td>
+          </tr>
+          <tr>
+            <th class="table-active">フリガナ</th><td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+    <p></p>
+
+      <%= form_with model: @farmer_review, url: farmer_job_offer_farmer_reviews_path, method: :post do |f| %>
+
+      <!--<div class="col-md-4 offset-3">-->
+        <div class="form-group" id="farmer_star">
+          <%= f.label :farmer_star,'評価 ', class:'col-md-3 col-form-label offset-3' %>
+        </div>
+
+        <div class="row">
+          <div class="col-me-4 offset-3">
+            利用者へのコメント
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-me-7 offset-3">
+            <%= f.text_area :farmer_comment, class:"w-100" %>
+          </div>
+        </div>
+
+        <div class="col text-center">
+          <%= f.submit 'レビュー登録', class: "btn btn-success" %>
+        </div>
+        <!--</div>-->
+        <!--</div>-->
+      <% end %>
+  </div>
+
+<script>
+  var elem = document.getElementById('farmer_star')
+  var opt = {
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              size     : 36,
+  };
+  raty(elem,opt)
+</script>

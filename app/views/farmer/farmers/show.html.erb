@@ -10,7 +10,7 @@
           <h2>生産者マイページ</h2>
         </div>
       </div>
-      <div class="col-md-2 offset-2">
+      <div class="col-md-2 offset-2 align-self-center">
       <%= link_to '編集する', farmer_farmers_mypage_edit_path(@farmer), class: "btn btn-success btn-lg" %>
       </div>
     </div>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="col-md-6">
-        <table class="table table-bordered table-hover" >
+        <table class="table table-bordered table-hover table-light" >
           <tr><th class="table-active">生産者名</th><td><%= @farmer.name %></td></tr>
           <tr><th class="table-active">フリガナ</th><td><%= @farmer.name_kana %></td></tr>
           <tr><th class="table-active">メールアドレス</th><td><%= @farmer.email %></td></tr>
