@@ -1,0 +1,53 @@
+<p id="notice"></p>
+  <div class="container">
+
+    <p></p>
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="box1">
+          <h2>利用者レビュー一覧ページ</h2>
+        </div>
+      </div>
+    </div>
+
+
+  <% if @farmer_reviews.any? %>
+    <% @farmer_reviews.each do |farmer_review| %>
+    <%#= farmer_review.inspect %>
+
+      <div class= "row border rounded border-2 p-5 align-items-center bg-light mt-3">
+          <div class="col-md-3">
+            <%= image_tag farmer_review.job_offer.farmer.get_farmers_image,size: "150x150", class:"box2" %>
+          </div>
+        <div class="col-md-2">
+          生産者名：<%=farmer_review.job_offer.farmer.name %>
+        <p></p>
+          作業名：<%=farmer_review.job_offer.job_name %>
+        </div>
+        <div class="col-md-3" id="farmer_star_<%= farmer_review.id %>" >
+          <%= farmer_review.farmer_star %>
+        </div>
+        <div class="col-md-4">
+          コメント：<%= farmer_review.farmer_comment %>
+        </div>
+      </div>
+
+        <script>
+          var elem = document.getElementById('farmer_star_<%= farmer_review.id %>')
+          var opt = {
+                      score: <%= farmer_review.farmer_star %>,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      size     : 36,
+                      readOnly: true,
+          };
+          raty(elem,opt)
+        </script>
+
+    <% end %>
+  <% end %>
+    <hr>
+</div>

@@ -29,28 +29,20 @@
 
               <% if admin_signed_in? %>
                <li>
-                 <%= link_to "商品一覧", homes_top_path, class: "btn btn-outline-secondary" %>
-               </li>
-               <li>
                 <%= link_to "会員一覧", homes_top_path, class: "btn btn-outline-secondary" %>
                </li>
-
                <li>
-                 <%= link_to "注文履歴一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "レビュー一覧", homes_top_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
-                 <%= link_to "ジャンル一覧", homes_top_path, class: "btn btn-outline-secondary" %>
-               </li>
-
-               <li>
-                 <%= link_to "ログアウト", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
                </li>
               <% elsif customer_signed_in? %>
               <li class="mr-5">
                 ようこそ！<%= current_customer.first_name %>さん
               </li>
                <li>
-                 <%= link_to "レビュー一覧", homes_top_path, class: "btn btn-outline-secondary" %>
+                 <%= link_to "レビュー一覧", farmer_reviews_path, class: "btn btn-outline-secondary" %>
                </li>
                <li>
                  <%= link_to "予約履歴", reservations_path, class: "btn btn-outline-secondary" %>
@@ -85,9 +77,6 @@
                  <%= link_to "ログアウト", destroy_farmer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
                </li>
                <% else %>
-               <li>
-                 <%= link_to "登録・ログイン", about_path, class: "btn btn-outline-secondary" %>
-               </li>
 
 
               <% end %>

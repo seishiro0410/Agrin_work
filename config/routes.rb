@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
   
+  namespace :admin do
+    get 'customer_reviews/index'
+  end
+  namespace :admin do
+    get 'farmer_reviews/index'
+  end
+  namespace :admin do
+    get 'farmers/index'
+  end
  # 利用者用
 # URL /customers/sign_in ...
 devise_for :customer,skip: [:passwords], controllers: {
@@ -25,6 +34,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   get 'homes/top'
     root to: 'homes#top'
   get '/about' => 'homes#about', as: 'about'
+  get 'admin/' => 'admin/homes#top', as: 'admin'
+  get 'admin/about'
 
   scope module: :customer do
     get 'customers/mypage' => 'customers#show', as: 'customers/mypage'
@@ -39,8 +50,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       get 'reservations/thanx'
 
       resources :customer_reviews, only: [:new, :create]
+
     end
 
+    resources :farmer_reviews, only: [:index]
     resources :reservations, only: [:index, :show]
 
 
@@ -53,16 +66,18 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     resources :job_offers, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       get 'reservations/index'
-      
+
       resources :farmer_reviews, only: [:new, :create]
 
       collection do
-        resources :customer_reviews, only: [:index, :show]
+        resources :customer_reviews, only: [:index]
       end
     end
+  end
 
 
-
+  namespace :admin do
+    get 'customers/index'
   end
 
 
