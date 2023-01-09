@@ -24,6 +24,9 @@
 https://docs.google.com/spreadsheets/d/1Yhov8DgXmxJmEB8yqw3C63CIAcp6F6n7Py_wnMbxRRk/edit#gid=1091086188
 
 ## 設計書
+- テーブル定義書：https://docs.google.com/spreadsheets/d/1uPnB6_4_sZ-ezubDhOxebSPe1PVrKSkRwRxuFjfGCKI/edit?usp=sharing
+- アプリケーション詳細設計：https://docs.google.com/spreadsheets/d/1IP-oVffn7sWgT9R0kTMY9P3noG9YJEhCi4n5xqfuNWs/edit?usp=sharing
+- ER図：https://drive.google.com/file/d/1blWIaXZXH6w2KKp72Mie8ibMmZbWy-4X/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -31,6 +34,3 @@ https://docs.google.com/spreadsheets/d/1Yhov8DgXmxJmEB8yqw3C63CIAcp6F6n7Py_wnMbx
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-使用検討中です。

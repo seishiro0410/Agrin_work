@@ -40,7 +40,7 @@
 
     <p></p>
 
-      <%= form_with model: @farmer_review, url: farmer_job_offer_farmer_reviews_path, method: :post do |f| %>
+      <%= form_with model: @farmer_review, url: farmer_job_offer_farmer_reviews_path(customer_id: @customer.id), method: :post do |f| %>
         <%= f.hidden_field :customer_id, :value => @customer.id %>
 
       <!--<div class="col-md-4 offset-3">-->
