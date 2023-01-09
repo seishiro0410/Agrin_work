@@ -27,7 +27,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: 'homes#top'
   get '/about' => 'homes#about', as: 'about'
   get 'admin/' => 'admin/homes#top', as: 'admin'
-  get 'admin/about'
 
   scope module: :customer do
     get 'customers/mypage' => 'customers#show', as: 'customers/mypage'
@@ -70,8 +69,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     get 'customers/index'
-    get 'customer_reviews/index'
-    get 'farmer_reviews/index'
+    resources :customer_reviews, only: [:index, :destroy]
+    resources :farmer_reviews, only: [:index, :destroy]
     get 'farmers/index'
   end
 

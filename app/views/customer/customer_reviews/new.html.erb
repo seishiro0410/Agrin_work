@@ -11,13 +11,22 @@
       </div>
     </div>
 
+    <% if @customer_review.errors.any? %>
+      <%= @customer_review.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @customer_review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <div class="row">
       <div class="col-md-4 text-center">
         <%= image_tag @job_offer.farmer.get_farmers_image,size: "300x300" %>
 
         <p></p>
 
-        <table class="table table-bordered" >
+        <table class="table table-bordered table-hover table-light" >
           <tr>
             <th class="table-active">生産者名</th><td><%= @job_offer.farmer.name %></td>
           </tr>
@@ -27,7 +36,7 @@
         </table>
       </div>
       <div class="col-md-8">
-        <table class="table table-bordered" >
+        <table class="table table-bordered table-hover table-light" >
           <tr>
             <th class="table-active">作業名</th><td><%= @job_offer.job_name %></td>
           </tr>
@@ -77,21 +86,23 @@
 
       <%= form_with model: @customer_review, url: job_offer_customer_reviews_path, method: :post do |f| %>
 
-      <!--<div class="col-md-4 offset-3">-->
-        <div class="form-group" id="customer_star">
-          <%= f.label :customer_star,'評価 ', class:'col-md-3 col-form-label offset-3' %>
-        </div>
+          <div class="form-group" id="customer_star">
+            <%= f.label :customer_star,'評価 ', class:'col-md-3 col-form-label offset-3 text-center' %>
+          </div>
+
+        <p></p>
+
 
         <div class="row">
-          <div class="col-me-4 offset-3">
+          <div class="col-md-3 offset-3 text-center">
             生産者へのコメント
           </div>
-        </div>
-        <div class="row">
-          <div class="col-me-7 offset-3">
+          <div class="col-md-4">
             <%= f.text_area :customer_comment, class:"w-100" %>
           </div>
         </div>
+
+        <p></p>
 
         <div class="col text-center">
           <%= f.submit 'レビュー登録', class: "btn btn-success" %>
@@ -100,6 +111,7 @@
         <!--</div>-->
       <% end %>
   </div>
+<p></p>
 
 <script>
   var elem = document.getElementById('customer_star')

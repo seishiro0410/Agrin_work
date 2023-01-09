@@ -11,43 +11,34 @@
       </div>
     </div>
 
+    <table class="table text-center">
+          <thead>
+            <tr>
+              <th class="col-md-1">レビューID</th>
+              <th class="col-md-1">利用者ID</th>
+              <th class="col-md-2">利用者名</th>
+              <th class="col-md-1">E-mail</th>
+              <th class="col-md-2">送信先</th>
+              <th class="col-md-1">評価</th>
+              <th class="col-md-5">コメント</th>
+              <th></th>
+            </tr>
+          </thead>
+        <tbody>
       <% @customer_reviews.each do |customer_review| %>
-        <%#= customer_review.inspect %>
-        <div class= "row border rounded border-2 p-5 align-items-center bg-light mt-3">
-          <div class="box2">
-          <div class="col-md-3">
-            <%= image_tag customer_review.customer.get_customers_image,size: "150x150" %>
-          </div>
-          </div>
-        <div class="col-md-2">
-          氏名：<%=customer_review.customer.first_name %><%=customer_review.customer.last_name %>
-        <p></p>
-          年齢：<%=customer_review.customer.age %>
-        <p></p>
-          メールアドレス：<%=customer_review.customer.email %>
-        </div>
-
-        <div class="col-md-3" id="customer_star_<%= customer_review.id %>" >
-          <%= customer_review.customer_star %>
-        </div>
-        <div class="col-md-4">
-          コメント：<%=customer_review.customer_comment %>
-        </div>
-      </div>
-
-        <script>
-          var elem = document.getElementById('customer_star_<%= customer_review.id %>')
-          var opt = {
-                      score: <%= customer_review.customer_star %>,
-                      starOff:  '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
-                      half: true,
-                      size     : 36,
-                      readOnly: true,
-          };
-          raty(elem,opt)
-        </script>
-
+          <tr>
+           <td><%= customer_review.id %></td>
+            <td><%= customer_review.customer.id %></td>
+            <td><%= customer_review.customer.first_name %><%=customer_review.customer.last_name %></td>
+           <td><%= customer_review.customer.email %></td>
+           <td><%= customer_review.job_offer.farmer.name %></td>
+            <td><%= customer_review.customer_star %></td>
+           <td><%= customer_review.customer_comment %></td>
+           <td><%= link_to '削除',  admin_customer_review_path(customer_review.id), method: :delete, "data-confirm" => "本当に消しますか?",  class: "btn btn-danger" %></td>
+          </tr>
+            <%#= image_tag customer_review.customer.get_customers_image,size: "150x150" %>
+          </tbody>
       <% end %>
+      </table>
   </div>
+  <p></p>

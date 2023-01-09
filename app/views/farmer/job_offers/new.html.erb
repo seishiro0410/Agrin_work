@@ -8,6 +8,15 @@
       </div>
   </div>
 
+  <% if @job_offer.errors.any? %>
+  <%= @job_offer.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @job_offer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
    <%= form_with model: @job_offer, url: farmer_job_offers_path do |f| %>
   <div class="row">
     <div class="col-md-2 py-3 offset-3">

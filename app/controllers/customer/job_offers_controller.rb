@@ -1,4 +1,6 @@
 class Customer::JobOffersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
     @job_offers = JobOffer.all
   end

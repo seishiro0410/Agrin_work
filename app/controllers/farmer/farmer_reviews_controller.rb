@@ -11,8 +11,13 @@ class Farmer::FarmerReviewsController < ApplicationController
     @farmer_review.farmer_star = params[:score]
     @farmer_review.customer_id = farmer_review_params[:customer_id]
 
-    @farmer_review.save!
-    redirect_to farmer_job_offer_reservations_index_path
+    if @farmer_review.save
+      redirect_to farmer_job_offer_reservations_index_path
+    else
+      @job_offer = JobOffer.find(params[:job_offer_id])
+      @customer = @job_offer.customers.find(params[:customer_id])
+      render :new
+    end
   end
 
   private

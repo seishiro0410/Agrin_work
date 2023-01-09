@@ -8,6 +8,15 @@
       </div>
     </div>
 
+    <% if @farmer_review.errors.any? %>
+      <%= @farmer_review.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @farmer_review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
 　　<div class="row align-items-center">
       <div class="col-md-4 offset-1 text-center">
         <%= image_tag @customer.get_customers_image,size: "300x300" %>
@@ -43,10 +52,10 @@
       <p></p>
 
         <div class="row">
-          <div class="col-me-3 offset-3 center">
+          <div class="col-md-3 offset-3 text-center">
             利用者へのコメント
           </div>
-          <div class="col-me-4 offset-2">
+          <div class="col-md-4">
             <%= f.text_area :farmer_comment, class:"w-100" %>
           </div>
         </div>

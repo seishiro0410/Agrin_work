@@ -70,7 +70,7 @@ main {
 }
 
 .box4 {
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     margin: 2em 0;
     color: #00BCD4;
     background: #e4fcff;/*背景色*/
@@ -83,7 +83,7 @@ main {
 }
 
 .box5 {
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     margin: 2em 0;
     color: #33CC33;
     background: #CCFFCC;/*背景色*/
@@ -107,4 +107,13 @@ main {
 .box6 p {
     margin: 10px;
     padding: 10px;
+}
+
+//レビュー登録でerrorメッセージが表示されるケースでの星がずれる際の対応
+#customer_star div.field_with_errors {
+    display: inline;
+}
+
+#farmer_star div.field_with_errors {
+    display: inline;
 }

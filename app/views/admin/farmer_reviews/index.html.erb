@@ -11,43 +11,36 @@
       </div>
     </div>
 
+
+    <table class="table text-center">
+          <thead>
+            <tr>
+              <th class="col-md-1">レビューID</th>
+              <th class="col-md-1">生産者ID</th>
+              <th class="col-md-2">生産者名</th>
+              <th class="col-md-1">E-mail</th>
+              <th class="col-md-2">送信先</th>
+              <th class="col-md-1">評価</th>
+              <th class="col-md-5">コメント</th>
+              <th></th>
+            </tr>
+          </thead>
+　　　　　<tbody>
+
       <% @farmer_reviews.each do |farmer_review| %>
-        <%#= customer_review.inspect %>
-        <div class= "row border rounded border-2 p-5 align-items-center bg-light mt-3">
-          <div class="box2">
-          <div class="col-md-3">
-            <%= image_tag farmer_review.job_offer.farmer.get_farmers_image,size: "150x150" %>
-          </div>
-          </div>
-        <div class="col-md-2">
-          氏名：<%=farmer_review.job_offer.farmer.name %>
-        <p></p>
-          利用者：<%=farmer_review.customer.first_name %>
-        <p></p>
-          メールアドレス：<%=farmer_review.customer.email %>
-        </div>
-
-        <div class="col-md-3" id="farmer_star_<%= farmer_review.id %>" >
-          <%= farmer_review.farmer_star %>
-        </div>
-        <div class="col-md-4">
-          コメント：<%=farmer_review.farmer_comment %>
-        </div>
-      </div>
-
-        <script>
-          var elem = document.getElementById('farmer_star_<%= farmer_review.id %>')
-          var opt = {
-                      score: <%= farmer_review.farmer_star %>,
-                      starOff:  '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
-                      half: true,
-                      size     : 36,
-                      readOnly: true,
-          };
-          raty(elem,opt)
-        </script>
-
+          <tr>
+        　 <td><%= farmer_review.id %></td>
+        　  <td><%=farmer_review.job_offer.farmer.id %></td>
+        　  <td><%= farmer_review.job_offer.farmer.name %></td>
+        　 <td><%= farmer_review.job_offer.farmer.email %></td>
+        　 <td><%= farmer_review.customer.first_name %><%= farmer_review.customer.last_name %></td>
+        　  <td><%= farmer_review.farmer_star %></td>
+        　 <td><%= farmer_review.farmer_comment %></td>
+        　 <td><%= link_to '削除',  admin_farmer_review_path(farmer_review.id), method: :delete, "data-confirm" => "本当に消しますか?",  class: "btn btn-danger" %></td>
+        　</tr>
+            <%#= image_tag customer_review.customer.get_customers_image,size: "150x150" %>
+          </tbody>
       <% end %>
-  </div>
+    </table>
+    </div>
+<p></p>

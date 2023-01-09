@@ -1,4 +1,5 @@
 class Farmer::FarmersController < ApplicationController
+  before_action :authenticate_farmer!
   def show
     @farmer = current_farmer
   end

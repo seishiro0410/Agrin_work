@@ -7,6 +7,12 @@ class Farmer < ApplicationRecord
   has_many :job_offers, dependent: :destroy
   has_one_attached :farmers_image
 
+  validates :name, presence: true
+  validates :name_kana, presence: true
+  validates :postal_code, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true
+
   def get_farmers_image
     unless farmers_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

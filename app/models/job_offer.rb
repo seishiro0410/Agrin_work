@@ -11,4 +11,12 @@ class JobOffer < ApplicationRecord
   enum job_form: { day: 0, short: 1 }
   enum job_status: { recruitment: true, stop: false }
   validates :job_status, inclusion: { in: ["recruitment", "stop"] }
+
+  validates :job_name, presence: true
+  validates :job_content, presence: true
+  validates :salary, presence: true
+  validates :job_address, presence: true
+  validates :job_postal_code, presence: true
+  validates :start_time, presence: true
+  validates :job_time, presence: true
 end
