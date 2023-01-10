@@ -83,8 +83,9 @@
                  <%= link_to "ログアウト", destroy_farmer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
                </li>
                <% else %>
-
-
+               <li>
+                 <%= link_to "登録・ログイン", about_path, class: "btn btn-outline-secondary" %>
+               </li>
               <% end %>
 
 
