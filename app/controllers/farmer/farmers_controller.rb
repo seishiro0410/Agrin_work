@@ -10,8 +10,11 @@ class Farmer::FarmersController < ApplicationController
 
   def update
     @farmer = current_farmer
-    @farmer.update(farmer_params)
-    redirect_to farmar_farmers_mypage_path
+    if @farmer.update(farmer_params)
+      redirect_to farmer_farmers_mypage_path
+    else
+      render :edit
+    end
   end
 
   private
