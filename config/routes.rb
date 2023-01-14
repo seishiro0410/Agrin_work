@@ -20,13 +20,12 @@ devise_for :farmer,skip: [:passwords], controllers: {
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
+  sessions: "admin/sessions", as: 'admin'
 }
 
   get 'homes/top'
     root to: 'homes#top'
   get '/about' => 'homes#about', as: 'about'
-  get 'admin/' => 'admin/homes#top', as: 'admin'
 
   scope module: :customer do
     get 'customers/mypage' => 'customers#show', as: 'customers/mypage'
