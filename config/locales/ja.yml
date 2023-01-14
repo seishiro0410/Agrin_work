@@ -29,10 +29,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-    # attributes:
-      # customer:
-        # ここに書く
-        # カラム名: 表示名
+    attributes:
+      job_offer:
+        job_name: 作業名
+        job_content: 作業内容
+        salary: 給料
+        job_address: 住所
+        job_postal_code: 郵便番号
+        start_time: 開始時間
+        job_time: 作業時間
 
   date:
     abbr_day_names:
