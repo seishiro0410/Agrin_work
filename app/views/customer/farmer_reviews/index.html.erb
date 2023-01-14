@@ -23,7 +23,9 @@
         <div class="col-md-2">
           生産者名：<%=farmer_review.job_offer.farmer.name %>
         <p></p>
-          作業名：<%=farmer_review.job_offer.job_name %>
+          作業名：<br><%=farmer_review.job_offer.job_name %>
+        <p></p>
+          日付：<%=farmer_review.job_offer.day %>
         </div>
         <div class="col-md-3" id="farmer_star_<%= farmer_review.id %>" >
           <%= farmer_review.farmer_star %>

@@ -1,7 +1,7 @@
 class Farmer::JobOffersController < ApplicationController
   before_action :authenticate_farmer!
   before_action :correct_farmer, only: [:show, :edit, :update, :destroy]
-  
+
   def new
     @job_offer = JobOffer.new
   end
@@ -35,8 +35,11 @@ class Farmer::JobOffersController < ApplicationController
   end
 
   def update
-    @job_offer.update(job_offer_params)
-    redirect_to farmer_job_offers_path(@job_offer.id)
+    if @job_offer.update(job_offer_params)
+      redirect_to farmer_job_offers_path(@job_offer.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -45,7 +48,7 @@ class Farmer::JobOffersController < ApplicationController
   end
 
   private
-  
+
   def correct_farmer
     @job_offer = current_farmer.job_offers.find_by(id: params[:id])
     redirect_to root_path if !@job_offer
