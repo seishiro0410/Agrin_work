@@ -1,8 +1,7 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
-    <h2>下記の項目を入力してください
-    </h2>
-    <ul>
+    <h4>下記の項目を入力してください</h4>
+    <ul class="list-unstyled">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

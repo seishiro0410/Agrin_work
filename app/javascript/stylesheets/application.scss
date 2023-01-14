@@ -4,7 +4,7 @@
 
 
 .radio_button_label {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 .radio_button_input {
   margin-right: 1rem;
@@ -117,5 +117,10 @@ main {
 }
 
 #farmer_star div.field_with_errors {
+    display: inline;
+}
+
+//レビュー登録でerrorメッセージが表示されるケースでの星がずれる際の対応
+#customer gender div.field_with_errors {
     display: inline;
 }
