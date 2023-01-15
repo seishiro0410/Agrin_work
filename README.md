@@ -29,6 +29,9 @@ https://docs.google.com/spreadsheets/d/1Yhov8DgXmxJmEB8yqw3C63CIAcp6F6n7Py_wnMbx
 - ER図：https://drive.google.com/file/d/1blWIaXZXH6w2KKp72Mie8ibMmZbWy-4X/view?usp=sharing
 - ワイヤーフレーム：https://drive.google.com/file/d/19u62R3myHsTrQgQReC5KtY9MAHu6x005/view?usp=sharing
 
+## テスト仕様書
+- https://docs.google.com/spreadsheets/d/1Ywtu7-EF06LTTzos-JCJ6h2fejWToQI0vD3eF8ysHiw/edit?usp=sharing  
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
